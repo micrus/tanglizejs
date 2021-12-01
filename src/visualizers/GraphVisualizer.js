@@ -1,6 +1,6 @@
 import { GRAPH_OPTION } from "./constants.js";
 
-export class TangleVisualizer {
+export class GraphVisualizer {
     constructor(tangle, location, width, height, options = GRAPH_OPTION){
        
         this.options= {...GRAPH_OPTION, ...options};
