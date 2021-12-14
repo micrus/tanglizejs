@@ -1,5 +1,6 @@
 import {Node} from "../elements/Node.js";
 import {Arc} from "../elements/Arc.js";
+import { Diagram } from "./Diagram.js";
 
 export class Tangle{
 
@@ -8,6 +9,7 @@ export class Tangle{
         this.upperNodes = new Array();
         this.bottomNodes = new Array();
         this.arcs = new Array();
+        this.constructionString = arcs;
 
         this.addNodes(arcs);
         this.addArcs(arcs);
@@ -40,5 +42,20 @@ export class Tangle{
 
     getMinimumNode(){
         return this.upperNodes.map(node => parseInt(node.id)).reduce(function(a,b){return Math.min(a,b)});
+    }
+
+    toDiagram(){
+
+        let newConstructionString = this.constructionString;
+        const orderedNode = this.upperNodes.map(node => node.id).sort();
+        console.log(orderedNode);
+
+        //start from bottom nodes
+        for(let newNodeCounter = this.upperNodes.length*2; newNodeCounter>=this.upperNodes.length+1;newNodeCounter--){
+
+            newConstructionString = newConstructionString.replace(`${orderedNode.shift()}'`, newNodeCounter);
+        }
+        console.log(this.constructionString + " will become "+newConstructionString);
+        return new Diagram(newConstructionString);
     }
 }

@@ -49,11 +49,9 @@ export class Diagram{
         }
 
         for(newNodeCounter=this.nodes.length/2; newNodeCounter>0; newNodeCounter--){
-            //console.log(orderedNode.pop()+" will become "+newNodeCounter);
             newConstructionString = newConstructionString.replace(orderedNode.pop(), newNodeCounter);
         }
 
-        console.log(this.constructionString + "will become "+newConstructionString);
         return new Tangle(newConstructionString);
     }
 }
