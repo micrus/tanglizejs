@@ -9,10 +9,7 @@ export class GraphVisualizer {
         this.width = width;
         this.height = height;
 
-        this.location = d3.select(location)
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+        this.location = d3.select(location);
 
         this.xScale = d3.scaleLinear()
         .domain([this.diagram.getMinimumNode()-1, this.diagram.getHigherNode()+1])
@@ -37,6 +34,11 @@ export class GraphVisualizer {
    
    
     draw() {
+    this.location = this.location
+        .append("svg")
+        .attr("width", this.width)
+        .attr("height", this.height);
+    
     this.drawMainLine();
     this.options.arc_line ==="straight"?this.drawStraightArcs():this.drawZigZagArcs();
     this.drawNodes();

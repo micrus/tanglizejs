@@ -10,10 +10,8 @@ export class TangleVisualizer {
         this.width = width;
         this.height = height;
 
-        this.location = d3.select(location)
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+        this.location = d3.select(location);
+        
 
         this.xScale = d3.scaleLinear()
         .domain([this.tangle.getMinimumNode()-1, this.tangle.getHigherNode()+1])
@@ -42,6 +40,11 @@ export class TangleVisualizer {
    
    
     draw() {
+
+    this.location = this.location.append("svg")
+        .attr("width", this.width)
+        .attr("height", this.height);
+    
     this.drawMainLines();
     this.drawNodes();
     this.drawStraightArcs();
