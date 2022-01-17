@@ -7,3 +7,7 @@ html {
   svg {
       height: 100%;
   }
+  h1{
+    margin-bottom: 45px !important;
+    margin-top: 45px !important;
+  }
