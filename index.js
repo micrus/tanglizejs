@@ -26,7 +26,6 @@ $('#btn-tfa').click(function() {
         let tangleVisualizer = new TangleVisualizer(tangle, "#graph-box", 500, 300);
         tangleVisualizer.draw();
     }
-
  });
  
 $('#btn-tfpa').click(function() {

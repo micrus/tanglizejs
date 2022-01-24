@@ -100,9 +100,6 @@ export class GraphVisualizer {
             const generator = d3.lineRadial();
             svg.append("path").attr("d", generator(data));
         })
-
-
-
     }
 
 

@@ -18,7 +18,7 @@ export class TangleVisualizer {
         .range([100, this.width - 100]);
 
         this.updateLocation(this.width, this.height);
-
+        console.log(this.tangle.arcs)
     }
 
 
@@ -75,7 +75,6 @@ export class TangleVisualizer {
 
     drawNodes(){
         let nodes = this.tangle.upperNodes.concat(this.tangle.bottomNodes);
-        console.log(nodes);
         nodes.forEach(node => {
             this.location.append('circle')
                 .attr("id", `node-${node.id}`)

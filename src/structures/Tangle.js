@@ -25,9 +25,15 @@ export class Tangle{
     addArcs(arcs){
         arcs.split(",").forEach(_arc => {
             let _arc_nodes = _arc.split(":");
-            
-            let firstNode = new Node(_arc_nodes[0], 0, 0);
-            let secondNode = new Node(_arc_nodes[1], 0, 0);
+            console.log(_arc_nodes);
+            let firstNode,secondNode;
+            if(_arc_nodes[0].replace("'","") <= _arc_nodes[1].replace("'","")){
+            firstNode = new Node(_arc_nodes[0], 0, 0);
+            secondNode = new Node(_arc_nodes[1], 0, 0);}else{
+            firstNode = new Node(_arc_nodes[1], 0, 0);
+            secondNode = new Node(_arc_nodes[0], 0, 0);
+            }
+
            
 
             if(_arc_nodes.every(node => this.upperNodes.map(node=>node.id).includes(node))){this.arcs.push(new Arc(firstNode, secondNode, "bottom"));}
